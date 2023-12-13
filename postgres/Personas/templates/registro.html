@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block cabecera %}
+      <title>UES SJR</title>
+{% endblock %}
+
+{% block cuerpo%}
+     <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img  id="ues-logo"
+                src="{{ url_for('static', filename='BMW.svg.png')}}" 
+                alt="UMB logo" 
+                width="100px">
+                
+            </div>
+            <div class="col-6">
+                <h5 class="text-center">REGISTRATE</h5>
+                {% include 'componentes/publicar-form.html'%}
+                <hr>
+                {% for persona in personas %}
+                    {{persona.nombre }}
+                    {{persona.modelo }}
+                    {{persona.costo }}
+                    {{persona.cantidad }}
+                    
+                {% endfor %}
+            </div> 
+            
+
+        </div>
+
+     </div>
+{% endblock%}

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css')}}">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Costo</th>
+                <th>Cantidad</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+            
+            <tr>
+                <td>{{persona.id }}</td>
+                <td>{{persona.nombre }}</td>
+                <td>{{persona.modelo }}</td>
+                <td>{{persona.costo }}</td>
+                <td>{{persona.cantidad }}</td>
+                
+                <td> <a type="button" data-bs-dismiss="modal" href="{{url_for('act', id = persona.id)}}" >Actualizar</a> |
+                    <a href="{{url_for('eliminar', id = persona.id)}}">Eliminar</a>
+                </td>
+                
+            </tr>
+            
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+</body>
+</html>

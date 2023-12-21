@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block cabecera %}
+      <title>UES SJR</title>
+{% endblock %}
+
+{% block cuerpo%}
+     <div class="container">
+        <div class="row">
+            <div class="col-2">
+                {% include 'componentes/navbar.html'%}
+                
+            </div>
+            <div class="col-6">
+                <h5>Inicio</h5>
+                {% include 'componentes/actualizar.html'%}
+                <hr>
+                {% for persona in personas %}
+                    {{persona.nombre }}
+                    {{persona.modelo }}
+                    {{persona.costo }}
+                    {{persona.cantidad }}
+                    
+                {% endfor %}
+            </div> 
+            <div class="col">
+                <hr>
+            </div>
+
+        </div>
+
+     </div>
+{% endblock%}
